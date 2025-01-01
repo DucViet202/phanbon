@@ -39,8 +39,8 @@ const PurchaseBillCard = ({ purchaseBill, onViewDetails }) => {
           <span className="font-medium">{purchaseBill.purchaseInvoiceId}</span>
           <span
             className={`px-2 py-1 rounded-full text-xs ${purchaseBill.status === "payed"
-                ? "bg-green-100 text-green-800"
-                : "bg-yellow-100 text-yellow-800"
+              ? "bg-green-100 text-green-800"
+              : "bg-yellow-100 text-yellow-800"
               }`}
           >
             {getStatusDisplay(purchaseBill.status)}
@@ -67,10 +67,10 @@ const PurchaseBillCard = ({ purchaseBill, onViewDetails }) => {
           <span className="font-medium">Phê duyệt: </span>
           <span
             className={`px-2 py-1 rounded-full text-xs ${purchaseBill.approveStatus === "approved"
-                ? "bg-green-100 text-green-800"
-                : purchaseBill.approveStatus === "rejected"
-                  ? "bg-red-100 text-red-800"
-                  : "bg-yellow-100 text-yellow-800"
+              ? "bg-green-100 text-green-800"
+              : purchaseBill.approveStatus === "rejected"
+                ? "bg-red-100 text-red-800"
+                : "bg-yellow-100 text-yellow-800"
               }`}
           >
             {getApproveStatusDisplay(purchaseBill.approveStatus)}
@@ -87,7 +87,7 @@ const PurchaseBillCard = ({ purchaseBill, onViewDetails }) => {
       <div className="hidden md:grid grid-cols-8 gap-4 items-center">
         <div className="truncate">{purchaseBill.purchaseInvoiceId}</div>
         <div className="truncate">{purchaseBill.supplierId.supplierName}</div>
-        <div className="truncate">{"006565656565"}</div>
+        <div className="truncate">{purchaseBill.supplierId.supplierPhone}</div>
 
         <div className="text-right font-semibold text-green-600 truncate">
           {purchaseBill.totalAmount.toLocaleString()} đ
@@ -100,8 +100,8 @@ const PurchaseBillCard = ({ purchaseBill, onViewDetails }) => {
         <div className="text-center">
           <span
             className={`inline-block px-2 py-1 rounded-full text-xs ${purchaseBill.status === "payed"
-                ? "bg-green-100 text-green-800"
-                : "bg-yellow-100 text-yellow-800"
+              ? "bg-green-100 text-green-800"
+              : "bg-yellow-100 text-yellow-800"
               }`}
           >
             {getStatusDisplay(purchaseBill.status)}
@@ -110,10 +110,10 @@ const PurchaseBillCard = ({ purchaseBill, onViewDetails }) => {
         <div className="text-center">
           <span
             className={`inline-block px-2 py-1 rounded-full text-xs ${purchaseBill.approveStatus === "approved"
-                ? "bg-green-100 text-green-800"
-                : purchaseBill.approveStatus === "rejected"
-                  ? "bg-red-100 text-red-800"
-                  : "bg-yellow-100 text-yellow-800"
+              ? "bg-green-100 text-green-800"
+              : purchaseBill.approveStatus === "rejected"
+                ? "bg-red-100 text-red-800"
+                : "bg-yellow-100 text-yellow-800"
               }`}
           >
             {getApproveStatusDisplay(purchaseBill.approveStatus)}
