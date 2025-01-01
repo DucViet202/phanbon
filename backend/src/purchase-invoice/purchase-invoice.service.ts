@@ -23,7 +23,7 @@ export class PurchaseInvoiceService {
     @InjectModel(Supplier.name) private supplierModel: Model<Supplier>,
     @InjectModel('Products') private productsModel: Model<Products>,
     private readonly generateService: GenerateService,
-  ) {}
+  ) { }
 
   // thêm hóa đơn mua hàng
   async addPurchaseInvoiceService(
@@ -194,9 +194,9 @@ export class PurchaseInvoiceService {
   async getAllPurchaseInvoiceLeanService(): Promise<PurchaseInvoice[]> {
     return await this.purchaseInvoiceModel.find().populate({
       path: 'supplierId',
-      select: 'supplierName supplierId',
-    })    
-    .lean().exec();
+      select: 'supplierName supplierId supplierPhone',
+    })
+      .lean().exec();
   }
 
   //lấy danh sách hóa đơn mua hàng theo trạng thái approveStatus = pending
@@ -204,7 +204,7 @@ export class PurchaseInvoiceService {
     return await this.purchaseInvoiceModel
       .find({ approveStatus: 'pending' }).populate({
         path: 'supplierId',
-        select: 'supplierName supplierId',
+        select: 'supplierName supplierId supplierPhone',
       })
       .select({
         purchaseProducts: 0, // Ẩn trường purchaseProducts
@@ -271,7 +271,7 @@ export class PurchaseInvoiceService {
       throw new InternalServerErrorException('Something went wrong');
     }
 
-    
+
 
     //cập nhật hóa đơn mua hàng, câp nhật paidAmount, amountOwed, status
     return await this.purchaseInvoiceModel
@@ -286,7 +286,7 @@ export class PurchaseInvoiceService {
     return await this.purchaseInvoiceModel
       .find({ approveStatus }).populate({
         path: 'supplierId',
-        select: 'supplierName supplierId',
+        select: 'supplierName supplierId supplierPhone',
       })
       .select({
         purchaseProducts: 0, // Ẩn trường purchaseProducts
@@ -304,7 +304,7 @@ export class PurchaseInvoiceService {
     return await this.purchaseInvoiceModel
       .find({ approveStatus }).populate({
         path: 'supplierId',
-        select: 'supplierName supplierId',
+        select: 'supplierName supplierId supplierPhone',
       })
       .select({
         purchaseProducts: 0, // Ẩn trường purchaseProducts
